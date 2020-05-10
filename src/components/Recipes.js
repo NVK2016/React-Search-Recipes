@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 const api_Key = "fa3502941336b2865937f7efea9a0b60";
 const api_ID = "3aaa0d6e";
+    
 
 class Recipes extends Component {
     state = {
@@ -61,12 +62,24 @@ class Recipes extends Component {
                    
                     {this.state.recipeDetail.length ? (
                         this.state.recipeDetail.map((item, i) => {
-                            return (<div key={i} id={i}>
+                            return (
+                            <div className="row">
+                                <div key={i} id={i}>
                                 
                                 <h3>{item.recipe.label}</h3>
-                                <img src={item.recipe.image} alt={item.recipe.labe} />
-                                <a href={item.recipe.url} target="_blank" rel="noopener noreferrer">{item.recipe.url}</a>
-                                <p className="recipe-card__detail-text">{ item.recipe.ingredients}</p>
+                                <img src={item.recipe.image} alt={item.recipe.labe} className="round-image" />
+                                
+                                <a href={item.recipe.url} target="_blank" rel="noopener noreferrer">GET RECIPE!</a>
+                                <br/>
+                                <span className="recipe-card__detail-text">Ingredients :{ item.recipe.ingredients.map((ingredient,i) =>{
+                                    // console.log("ingredient: ", ingredient.text);
+                                    return (
+                                        <li key = {i} className = "ingredient">
+                                          {ingredient.text}
+                                        </li>
+                                      );
+                                })}</span>
+                                </div>
                             </div>
                             );
 
