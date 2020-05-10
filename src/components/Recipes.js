@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-    
+import RecipeCard from '../components/RecipeCard';
+
 class Recipes extends Component {
     state = {
         recipeTitle: "",
@@ -10,7 +11,7 @@ class Recipes extends Component {
     //Define onclick method to display recipes
     getRecipe = async () => {
         // event.preventDefault();
-        console.log(process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
+        // console.log(process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
         try {
             const { data } = await axios.get(
                 `https://api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
@@ -20,7 +21,7 @@ class Recipes extends Component {
                 recipeDetail: data.hits,
                 gotRecipe: true
             });
-            console.log("Recipe", this.state.gotRecipe, this.state.recipeDetail)
+            // console.log("Recipe", this.state.gotRecipe, this.state.recipeDetail)
         } catch (e) {
             console.log(e);
         }
@@ -56,28 +57,20 @@ class Recipes extends Component {
                     </div>
                 </div>
                 <div>
-                   
+
                     {this.state.recipeDetail.length ? (
                         this.state.recipeDetail.map((item, i) => {
                             return (
-                            <div className="row">
-                                <div key={i} id={i}>
-                                
-                                <h3>{item.recipe.label}</h3>
-                                <img src={item.recipe.image} alt={item.recipe.labe} className="round-image" />
-                                
-                                <a href={item.recipe.url} target="_blank" rel="noopener noreferrer">GET RECIPE!</a>
-                                <br/>
-                                <span className="recipe-card__detail-text">Ingredients :{ item.recipe.ingredients.map((ingredient,i) =>{
-                                    // console.log("ingredient: ", ingredient.text);
-                                    return (
-                                        <li key = {i} className = "ingredient">
-                                          {ingredient.text}
-                                        </li>
-                                      );
-                                })}</span>
+                               <div>
+                                    <RecipeCard
+                                        image={item.recipe.image}
+                                        url={item.recipe.url}
+                                        yields={item.recipe.yield}
+                                        title={item.recipe.label}
+                                        ingredients={item.recipe.ingredients}
+                                    />
                                 </div>
-                            </div>
+
                             );
 
                         })
