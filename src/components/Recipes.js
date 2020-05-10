@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-const api_Key = "fa3502941336b2865937f7efea9a0b60";
-const api_ID = "3aaa0d6e";
     
-
 class Recipes extends Component {
     state = {
         recipeTitle: "",
@@ -13,10 +10,10 @@ class Recipes extends Component {
     //Define onclick method to display recipes
     getRecipe = async () => {
         // event.preventDefault();
-        console.log(api_Key, api_ID)
+        console.log(process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
         try {
             const { data } = await axios.get(
-                `https://api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${api_ID}&app_key=${api_Key}`
+                `https://api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
             );
 
             this.setState({
