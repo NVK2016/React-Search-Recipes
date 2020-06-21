@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import RecipeCard from '../components/RecipeCard';
+import RecipeCard from './RecipeCard/RecipeCard';
 
 class Recipes extends Component {
     state = {
@@ -8,6 +8,7 @@ class Recipes extends Component {
         recipeDetail: {},
         gotRecipe: false,
     };
+
     //Define onclick method to display recipes
     getRecipe = async () => {
         // event.preventDefault();
@@ -32,16 +33,13 @@ class Recipes extends Component {
         console.log(name, value);
         this.setState({ [name]: value });
     };
-    // componentDidMount() {
-    //   console.log("i mounted");
-    //   // const recipe = this.state.recipeDetail;
-    // }
+   
     render() {
         return (
             <div className="mt-4">
-                <div>
-                    <div id="app" className="container">
-
+                
+                <div className="searchbox">
+      <form className="form-inline">
                         {/* <button className="btn btn-lg btn-primary btn-block" onClick={this.signUp} type="button">Sign up</button>  */}
                         <input
                             type="text"
@@ -51,26 +49,28 @@ class Recipes extends Component {
                         />
 
                         <button
-                            className="btn btn-lg btn-primary btn-block"
+                            className="btn btn-lg btn-primary btn-block random-recipe-btn"
                             onClick={this.getRecipe}
                             type="button">Get Recipes</button>
-                    </div>
+                    </form>
                 </div>
                 <div>
 
                     {this.state.recipeDetail.length ? (
                         this.state.recipeDetail.map((item, i) => {
                             return (
-                               <div>
                                     <RecipeCard
+                                    key={i}
+                                    id={i}
                                         image={item.recipe.image}
                                         url={item.recipe.url}
-                                        yields={item.recipe.yield}
+                                        yield={item.recipe.yield}
                                         title={item.recipe.label}
                                         ingredients={item.recipe.ingredients}
+                                        healthLabels = {item.recipe.healthLabels}
+                                        calories = {item.recipe.calories}
+                                        source={item.recipe.source}
                                     />
-                                </div>
-
                             );
 
                         })
