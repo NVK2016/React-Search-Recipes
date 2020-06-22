@@ -23,7 +23,7 @@ class Recipes extends Component {
                 recipeDetail: data.hits,
                 gotRecipe: true
             });
-            // console.log("Recipe", this.state.gotRecipe, this.state.recipeDetail)
+            console.log("Recipe", this.state.gotRecipe, this.state.recipeDetail)
         } catch (e) {
             console.log(e);
         }
