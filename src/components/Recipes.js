@@ -12,11 +12,10 @@ class Recipes extends Component {
     //Define onclick method to display recipes
     findRecipe = async () => {
         // event.preventDefault();
-        // console.log(process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
+        console.log(this.state.recipeTitle, process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
         try {
             const { data } = await axios.get(
                 `https://cors-anywhere.herokuapp.com/api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
-                // `/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
             );
 
             this.setState({
@@ -40,7 +39,7 @@ class Recipes extends Component {
             <div className="mt-4">
 
                 <div className="searchbox">
-                    <form className="form-inline">
+                    <form className="form-inline" >
                         <label>What would you like to search?</label>
                         <br />
                         {/* <button className="btn btn-lg btn-primary btn-block" onClick={this.signUp} type="button">Sign up</button>  */}
@@ -50,6 +49,12 @@ class Recipes extends Component {
                             value={this.state.recipeTitle}
                             placeholder="Please enter ingredient / recipe / mealtype"
                             onChange={this.handleInput}
+                            onKeyPress={event => {
+                                if (event.key === 'Enter') {
+                                    //Need to fix this 
+                                    this.findRecipe();
+                                }
+                            }}
                         />
 
                         <button
