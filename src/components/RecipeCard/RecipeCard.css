@@ -17,11 +17,9 @@ img {
   
   .recipe-card {
     border: 2px solid darkolivegreen;
-    /* border-radius: 15px 50px; */
     text-transform: capitalize;
     width: 60%;
     height:100%;
-    /* background-color: rgba(0, 0, 0, 0.3); */
     border-radius: 10px;
     float: right;
     box-sizing: border-box;
@@ -30,16 +28,33 @@ img {
     line-height: 1.5em;
     color: darkslateblue;
     position: relative;
+    background-color: beige;
   }
+
   .recipe-card:nth-of-type(odd){
-    background-color: salmon;
+    background-color: whitesmoke;
     float: left;
-    color: whitesmoke;
+    color: black;
+    border: 5px solid silver;  
 }
 
 a {
-    font-size: 0.6em;
+    font-size: 0.7em;
     margin-left: 0.7em;
+    background-color: lightgreen;
+    padding: 1.2em;
+    border-radius: 20px;
+    color: darkgreen;
+}
+
+.recipe-card:nth-of-type(odd) a{
+ 
+  font-size: 0.7em;
+  margin-left: 0.7em;
+  background-color: purple;
+  padding: 1.2em;
+  border-radius: 20px;
+  color: whitesmoke;
 }
 
 .recipe-label{

@@ -1,11 +1,15 @@
 body {
   margin: 0;
   font-family: 'Berkshire Swash', cursive;
-  background-image: url();
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  background-image: url("/assets/foodbg.jpg");
+  height: 100%;
+  /* overflow: hidden; */
+  color: lightgray;
+  opacity: 0.9; 
+  }
 
 .search-bar label {
   position: relative;
@@ -16,8 +20,8 @@ body {
 .random-recipe-btn {
   margin-left: 1em;
   border: none;
-  background-color: teal;
-  color: white;
+  background-color: greenyellow;
+  color: black;
   opacity: 0.7;
   padding: 1%;
   border-radius: 16px;
@@ -29,4 +33,12 @@ body {
 
 .random-recipe-btn:active {
   box-shadow: -1px 2px 27px -5px rgba(0,0,0,0.75);
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-size: large;
+  text-align: center;
+  width: 100%;
+  padding-top:12%
 }
