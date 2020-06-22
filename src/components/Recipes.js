@@ -10,12 +10,12 @@ class Recipes extends Component {
     };
 
     //Define onclick method to display recipes
-    getRecipe = async () => {
+    findRecipe = async () => {
         // event.preventDefault();
         // console.log(process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
         try {
             const { data } = await axios.get(
-                 `https://cors-anywhere.herokuapp.com/api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
+                `https://cors-anywhere.herokuapp.com/api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
                 // `/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
             );
 
@@ -34,25 +34,28 @@ class Recipes extends Component {
         console.log(name, value);
         this.setState({ [name]: value });
     };
-   
+
     render() {
         return (
             <div className="mt-4">
-                
+
                 <div className="searchbox">
-      <form className="form-inline">
+                    <form className="form-inline">
+                        <label>What would you like to search?</label>
+                        <br />
                         {/* <button className="btn btn-lg btn-primary btn-block" onClick={this.signUp} type="button">Sign up</button>  */}
                         <input
                             type="text"
                             name="recipeTitle"
                             value={this.state.recipeTitle}
+                            placeholder="Please enter ingredient / recipe / mealtype"
                             onChange={this.handleInput}
                         />
 
                         <button
                             className="btn btn-lg btn-primary btn-block random-recipe-btn"
-                            onClick={this.getRecipe}
-                            type="button">Get Recipes</button>
+                            onClick={this.findRecipe}
+                            type="button">Find Recipes</button>
                     </form>
                 </div>
                 <div>
@@ -60,18 +63,18 @@ class Recipes extends Component {
                     {this.state.recipeDetail.length ? (
                         this.state.recipeDetail.map((item, i) => {
                             return (
-                                    <RecipeCard
+                                <RecipeCard
                                     key={i}
                                     id={i}
-                                        image={item.recipe.image}
-                                        url={item.recipe.url}
-                                        yield={item.recipe.yield}
-                                        title={item.recipe.label}
-                                        ingredients={item.recipe.ingredients}
-                                        healthLabels = {item.recipe.healthLabels}
-                                        calories = {parseFloat(item.recipe.calories).toFixed(2)}
-                                        source={item.recipe.source}
-                                    />
+                                    image={item.recipe.image}
+                                    url={item.recipe.url}
+                                    yield={item.recipe.yield}
+                                    title={item.recipe.label}
+                                    ingredients={item.recipe.ingredients}
+                                    healthLabels={item.recipe.healthLabels}
+                                    calories={parseFloat(item.recipe.calories).toFixed(2)}
+                                    source={item.recipe.source}
+                                />
                             );
 
                         })
