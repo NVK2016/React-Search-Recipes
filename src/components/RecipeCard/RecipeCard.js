@@ -14,16 +14,16 @@ const RecipeCard = (props) => {
                 <div className="col-md-6 recipe-info">
                     <a href={props.url} target="_blank" rel="noopener noreferrer">GET RECIPE!</a>
                     <br />
-                    <h3>Yields: {props.yield}</h3>
+                    <h3>Yields: {props.yield} </h3>
                     <h3>Source: {props.source}</h3>
                     <h5> Health Label(s): {props.healthLabels.map((label, i) => {
                         return <span id={i}> {label} / </span>
                     })} </h5>
-                    <span>Ingredients :{props.ingredients.map((ingredient, i) => {
+                    <span className="ingredient">Ingredients :{props.ingredients.map((ingredient, i) => {
                         // console.log("ingredient: ", ingredient.text);
                         return (
 
-                            <li key={i} className="ingredient">
+                            <li key={i} >
                                 {ingredient.text}
                             </li>
 

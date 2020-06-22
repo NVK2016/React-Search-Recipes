@@ -77,3 +77,8 @@ a {
 .recipe-info {
   margin-left: 10px;
 }
+.ingredient {
+  display: inline-table;
+  vertical-align: top;
+  padding-right: 1%;
+}
