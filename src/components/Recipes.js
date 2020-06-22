@@ -12,7 +12,7 @@ class Recipes extends Component {
     //Define onclick method to display recipes
     findRecipe = async () => {
         // event.preventDefault();
-        console.log(this.state.recipeTitle, process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
+
         try {
             const { data } = await axios.get(
                 `https://cors-anywhere.herokuapp.com/api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
@@ -52,6 +52,7 @@ class Recipes extends Component {
                             onKeyPress={event => {
                                 if (event.key === 'Enter') {
                                     //Need to fix this 
+                                    this.handleInput();
                                     this.findRecipe();
                                 }
                             }}
