@@ -15,7 +15,8 @@ class Recipes extends Component {
         // console.log(process.env.REACT_APP_API_ID, process.env.REACT_APP_API_KEY)
         try {
             const { data } = await axios.get(
-                `https://api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
+                // `https://api.edamam.com/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
+                `/search?q=${this.state.recipeTitle}&app_id=${process.env.REACT_APP_API_ID}&app_key=${process.env.REACT_APP_API_KEY}`
             );
 
             this.setState({
