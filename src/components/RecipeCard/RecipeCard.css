@@ -16,7 +16,7 @@ img {
   }
   
   .recipe-card {
-    border: 2px solid darkolivegreen;
+    border: 2px solid silver;
     text-transform: capitalize;
     width: 60%;
     height:100%;
@@ -26,28 +26,28 @@ img {
     padding: 1em;
     margin: 1em; 
     line-height: 1.5em;
-    color: darkslateblue;
+    color: black;
     position: relative;
-    background-color: beige;
+    background-color: whitesmoke;
   }
 
   .recipe-card:nth-of-type(odd){
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     float: left;
-    color: black;
-    border: 5px solid silver;  
+    /* color: black;
+    border: 5px solid silver;   */
 }
 
 a {
     font-size: 0.7em;
     margin-left: 0.7em;
-    background-color: lightgreen;
+    background-color: greenyellow;
     padding: 1.2em;
     border-radius: 20px;
-    color: darkgreen;
+    /* color: darkgreen; */
 }
 
-.recipe-card:nth-of-type(odd) a{
+/* .recipe-card:nth-of-type(odd) a{
  
   font-size: 0.7em;
   margin-left: 0.7em;
@@ -55,7 +55,7 @@ a {
   padding: 1.2em;
   border-radius: 20px;
   color: whitesmoke;
-}
+} */
 
 .recipe-label{
 

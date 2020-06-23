@@ -5,7 +5,7 @@ import "./RecipeCard.css"
 const RecipeCard = (props) => {
     return (
 
-        <div className="recipe-card">
+        <div className="recipe-card col-sm-8">
             <h3 className="recipe-label">{props.title}</h3>
             <div className="row">
                 <img src={props.image} alt={props.label} className="round-image col-md-4" />
