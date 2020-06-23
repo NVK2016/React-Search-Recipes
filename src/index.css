@@ -20,7 +20,9 @@ body {
   width:30%;
   /* padding: 1em; */
 }
-
+h3 {
+  margin: 2em;
+}
 .random-recipe-btn {
   margin-left: 1em;
   border: none;
@@ -45,5 +47,7 @@ body {
   font-size: large;
   text-align: center;
   width: 100%;
-  padding-top:12%
+  margin-top: 10px;
+  padding-top:10px;
+  color: tomato;
 }

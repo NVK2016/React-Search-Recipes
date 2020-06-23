@@ -57,7 +57,7 @@ class Recipes extends Component {
                                 }
                             }}
                         />
-
+                        
                         <button
                             className="btn btn-lg btn-primary btn-block random-recipe-btn"
                             onClick={this.findRecipe}
