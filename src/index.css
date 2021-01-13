@@ -42,12 +42,22 @@ h3 {
   box-shadow: -1px 2px 27px -5px rgba(0,0,0,0.75);
 }
 .footer {
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   font-size: large;
   text-align: center;
   width: 100%;
   margin-top: 10px;
-  padding-top:10px;
+  padding-top:10px; */
   /* colosr: tomato; */
+
+
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: black;
+color: white;
+text-align: center;
+font-family:'Questrial', sans-serif;
 }
